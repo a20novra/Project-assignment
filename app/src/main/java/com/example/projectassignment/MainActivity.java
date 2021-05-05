@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Fishes> item;
     private ArrayAdapter<Fishes> adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20novra");
+        Log.d("yes", String.valueOf(item));
+
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -94,17 +97,23 @@ public class MainActivity extends AppCompatActivity {
                 JSONArray jsonarray = new JSONArray(json);
                 for(int i = 0; i < jsonarray.length(); i++){
                     JSONObject object = jsonarray.getJSONObject(i);
-                    int id = object.getInt("id");
+
+
+                    String id = object.getString("ID");
                     String name = object.getString("name");
-                    int size = object.getInt("size");
-                    int cost = object.getInt("cost");
+                    String size = object.getString("size");
+                    String cost = object.getString("cost");
                     String location = object.getString("location");
+
+
+
                     item.add(new Fishes(id,name, size, cost, location));
                     adapter.notifyDataSetChanged();
+
+
                 }
 
             } catch (JSONException e) {
-                Log.e("brom","E:"+e.getMessage());
             }
         }
     }

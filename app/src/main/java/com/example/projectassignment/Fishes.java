@@ -1,14 +1,14 @@
 package com.example.projectassignment;
 
 public class Fishes {
-    private int id;
+    private String id;
     private String name;
-    private int size;
-    private int cost;
+    private String size;
+    private String cost;
     private String location;
 
 
-    public Fishes( int id, String name, int size, int cost , String location){
+    public Fishes( String id, String name, String size, String cost , String location){
         this.id = id;
         this.name = name;
         this.size = size;
@@ -16,7 +16,7 @@ public class Fishes {
         this.location = location;
     }
 
-    public int getId(){
+    public String getId(){
         return id;
     }
 
@@ -24,11 +24,11 @@ public class Fishes {
         return name;
     }
 
-    public int getSize(){
+    public String getSize(){
         return size;
     }
 
-    public int getCost(){
+    public String getCost(){
         return cost;
     }
 

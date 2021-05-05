@@ -8,11 +8,13 @@
 
     <ListView
         android:id="@+id/my_list_view"
-        android:layout_width="407dp"
-        android:layout_height="562dp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="4dp"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="409dp"
+        android:layout_height="346dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.207"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp" />
 
     <Button
         android:id="@+id/button"
