@@ -21,24 +21,24 @@ public class Fishes {
         return id;
     }
 
-    public String getName(){
-        return name;
+    public String getName(String name){
+        return this.name;
     }
 
-    public String getSize(){
-        return size;
+    public String getSize(String size){
+        return this.size;
     }
 
-    public String getCost(){
-        return cost;
+    public String getCost(String cost){
+        return this.cost;
     }
 
-    public String getLocation(){
-        return location;
+    public String getLocation(String location){
+        return this.location;
     }
 
-    public String getAuxdata(){
-        return auxdata;
+    public String getAuxdata(String auxdata){
+        return this.auxdata;
     }
 
     @Override

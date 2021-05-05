@@ -3,6 +3,7 @@ package com.example.projectassignment;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,7 +42,13 @@ public class MainActivity extends AppCompatActivity {
         my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                Intent i = new Intent(MainActivity.this, Information.class);
+                i.putExtra("name", item.get(position).getName("name"));
+                i.putExtra("size", item.get(position).getSize("size"));
+                i.putExtra("cost", item.get(position).getCost("cost"));
+                i.putExtra("location", item.get(position).getLocation("location"));
+                i.putExtra("auxdata", item.get(position).getAuxdata("auxdata"));
+                startActivity(i);
             }
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20novra");
