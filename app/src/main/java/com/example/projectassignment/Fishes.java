@@ -6,9 +6,10 @@ public class Fishes {
     private String size;
     private String cost;
     private String location;
+    private String auxdata;
 
 
-    public Fishes( String id, String name, String size, String cost , String location){
+    public Fishes( String id, String name, String size, String cost , String location,  String auxdata){
         this.id = id;
         this.name = name;
         this.size = size;
@@ -34,6 +35,10 @@ public class Fishes {
 
     public String getLocation(){
         return location;
+    }
+
+    public String getAuxdata(){
+        return auxdata;
     }
 
     @Override

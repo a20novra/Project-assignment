@@ -98,18 +98,15 @@ public class MainActivity extends AppCompatActivity {
                 for(int i = 0; i < jsonarray.length(); i++){
                     JSONObject object = jsonarray.getJSONObject(i);
 
-
                     String id = object.getString("ID");
                     String name = object.getString("name");
                     String size = object.getString("size");
                     String cost = object.getString("cost");
                     String location = object.getString("location");
+                    String auxdata = object.getString("auxdata");
 
-
-
-                    item.add(new Fishes(id,name, size, cost, location));
+                    item.add(new Fishes(id,name, size, cost, location, auxdata));
                     adapter.notifyDataSetChanged();
-
 
                 }
 
