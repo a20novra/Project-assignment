@@ -11,6 +11,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -85,6 +89,23 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String json) {
             Log.d("TAG", json);
+            try {
+                // Ditt JSON-objekt som Javaª
+                JSONArray jsonarray = new JSONArray(json);
+                for(int i = 0; i < jsonarray.length(); i++){
+                    JSONObject object = jsonarray.getJSONObject(i);
+                    int id = object.getInt("id");
+                    String name = object.getString("name");
+                    int size = object.getInt("size");
+                    int cost = object.getInt("cost");
+                    String location = object.getString("location");
+                    item.add(new Fishes(id,name, size, cost, location));
+                    adapter.notifyDataSetChanged();
+                }
+
+            } catch (JSONException e) {
+                Log.e("brom","E:"+e.getMessage());
+            }
         }
     }
 }
