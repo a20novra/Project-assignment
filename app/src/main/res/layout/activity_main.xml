@@ -8,7 +8,20 @@
 
     <ListView
         android:id="@+id/my_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="407dp"
+        android:layout_height="562dp"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="4dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="134dp"
+        android:layout_height="62dp"
+        android:text="About"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_list_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
