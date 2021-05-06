@@ -2,7 +2,9 @@ package com.example.projectassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +23,10 @@ public class Information extends AppCompatActivity {
             String location = bundle.getString("location");
             String auxdata  = bundle.getString("auxdata");
 
+            Log.d("test", auxdata);
+
+
+
             TextView textViewName = findViewById(R.id.name);
             TextView textViewSize = findViewById(R.id.size);
             TextView textViewCost = findViewById(R.id.cost);
@@ -29,9 +35,10 @@ public class Information extends AppCompatActivity {
 
             textViewName.setText("Name: " + name);
             textViewSize.setText("Size: " + size);
-            textViewCost.setText("Cost: " + cost);
+            textViewCost.setText("Price: " + cost + "$");
             textViewLocation.setText("Location: " + location);
             imageView.setImageResource(Integer.parseInt(auxdata));
+
 
 
         }

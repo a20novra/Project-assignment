@@ -15,6 +15,7 @@ public class Fishes {
         this.size = size;
         this.cost = cost;
         this.location = location;
+        this.auxdata = auxdata;
     }
 
     public String getId(){

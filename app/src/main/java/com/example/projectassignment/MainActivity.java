@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -43,16 +44,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(MainActivity.this, Information.class);
-                i.putExtra("name", item.get(position).getName("name"));
-                i.putExtra("size", item.get(position).getSize("size"));
-                i.putExtra("cost", item.get(position).getCost("cost"));
+                i.putExtra("name",     item.get(position).getName("name"));
+                i.putExtra("size",     item.get(position).getSize("size"));
+                i.putExtra("cost",     item.get(position).getCost("cost"));
                 i.putExtra("location", item.get(position).getLocation("location"));
-                i.putExtra("auxdata", item.get(position).getAuxdata("auxdata"));
+                String a = item.get(position).getAuxdata("auxdata");
+                i.putExtra("auxdata", Uri.parse(a));
                 startActivity(i);
+
+
             }
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20novra");
-        Log.d("yes", String.valueOf(item));
 
     }
 
@@ -112,10 +115,12 @@ public class MainActivity extends AppCompatActivity {
                     String location = object.getString("location");
                     String auxdata = object.getString("auxdata");
 
-                    item.add(new Fishes(id,name, size, cost, location, auxdata));
-                    adapter.notifyDataSetChanged();
 
+
+                    item.add(new Fishes(id,name, size, cost, location, auxdata));
                 }
+                adapter.notifyDataSetChanged();
+
 
             } catch (JSONException e) {
             }
