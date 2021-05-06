@@ -21,9 +21,9 @@ public class Information extends AppCompatActivity {
             String size     = bundle.getString("size");
             String cost     = bundle.getString("cost");
             String location = bundle.getString("location");
-            String auxdata  = bundle.getString("auxdata");
+            //String auxdata  = bundle.getString("auxdata");
 
-            Log.d("test", auxdata);
+            //Log.d("test", auxdata);
 
 
 
@@ -34,10 +34,10 @@ public class Information extends AppCompatActivity {
             ImageView imageView = findViewById(R.id.imageView);
 
             textViewName.setText("Name: " + name);
-            textViewSize.setText("Size: " + size);
+            textViewSize.setText("Size: " + size + " inch");
             textViewCost.setText("Price: " + cost + "$");
             textViewLocation.setText("Location: " + location);
-            imageView.setImageResource(Integer.parseInt(auxdata));
+            //imageView.setImageResource(Integer.parseInt(auxdata));
 
 
 

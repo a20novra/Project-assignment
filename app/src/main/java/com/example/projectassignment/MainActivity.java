@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -48,8 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("size",     item.get(position).getSize("size"));
                 i.putExtra("cost",     item.get(position).getCost("cost"));
                 i.putExtra("location", item.get(position).getLocation("location"));
-                String a = item.get(position).getAuxdata("auxdata");
-                i.putExtra("auxdata", Uri.parse(a));
+                i.putExtra("auxdata",  item.get(position).getAuxdata("auxdata"));
                 startActivity(i);
 
 
@@ -57,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20novra");
 
+        //OnClick for Button
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -115,12 +122,10 @@ public class MainActivity extends AppCompatActivity {
                     String location = object.getString("location");
                     String auxdata = object.getString("auxdata");
 
-
-
                     item.add(new Fishes(id,name, size, cost, location, auxdata));
-                }
-                adapter.notifyDataSetChanged();
+                    adapter.notifyDataSetChanged();
 
+                }
 
             } catch (JSONException e) {
             }
