@@ -25,8 +25,6 @@ public class Information extends AppCompatActivity {
 
             //Log.d("test", auxdata);
 
-
-
             TextView textViewName = findViewById(R.id.name);
             TextView textViewSize = findViewById(R.id.size);
             TextView textViewCost = findViewById(R.id.cost);
