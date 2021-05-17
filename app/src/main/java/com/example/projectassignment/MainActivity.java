@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
         });
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=a20novra");
 
-        //OnClick for about Button
-        Button buttonAbout = findViewById(R.id.buttonAbout);
-        buttonAbout.setOnClickListener(new View.OnClickListener() {
+        //OnClick for Button
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String msg ="Målgroup:  Folk som är  intresserad av fiskar.";
-                Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, About.class);
+                startActivity(intent);
             }
         });
     }
